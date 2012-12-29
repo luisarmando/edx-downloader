@@ -52,6 +52,8 @@ USEREMAIL = data.find_all('span')[3].string
 COURSES = soup.find_all('article')
 courses = []
 for COURSE in COURSES :
+    if not COURSE.h3:
+        continue
     c_name = COURSE.h3.string
     c_link = "https://www.edx.org"+COURSE.a['href']
     if c_link.endswith("info") or c_link.endswith("info/") :
